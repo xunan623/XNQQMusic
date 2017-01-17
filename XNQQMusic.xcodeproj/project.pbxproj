@@ -13,9 +13,11 @@
 		711E3DD51E2DEF7000B03554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711E3DD31E2DEF7000B03554 /* Main.storyboard */; };
 		711E3DD71E2DEF7000B03554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711E3DD61E2DEF7000B03554 /* Assets.xcassets */; };
 		711E3DDA1E2DEF7000B03554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711E3DD81E2DEF7000B03554 /* LaunchScreen.storyboard */; };
+		ACB13D24CD8A951C1ECCC9DC /* libPods-XNQQMusic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F6D5B31B839B5E64812002 /* libPods-XNQQMusic.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5727237C7BFAB2E56437EAA2 /* Pods-XNQQMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XNQQMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-XNQQMusic/Pods-XNQQMusic.release.xcconfig"; sourceTree = "<group>"; };
 		711E3DC71E2DEF7000B03554 /* XNQQMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XNQQMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		711E3DCB1E2DEF7000B03554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		711E3DCD1E2DEF7000B03554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		711E3DD61E2DEF7000B03554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711E3DD91E2DEF7000B03554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711E3DDB1E2DEF7000B03554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6F6D5B31B839B5E64812002 /* libPods-XNQQMusic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XNQQMusic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F809E93DE686F0A69F34F2 /* Pods-XNQQMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XNQQMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XNQQMusic/Pods-XNQQMusic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB13D24CD8A951C1ECCC9DC /* libPods-XNQQMusic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				711E3DC91E2DEF7000B03554 /* XNQQMusic */,
 				711E3DC81E2DEF7000B03554 /* Products */,
+				7BDF4AC370018794022FECD4 /* Pods */,
+				A61E98A8E7844E7F68B42E70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7BDF4AC370018794022FECD4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5F809E93DE686F0A69F34F2 /* Pods-XNQQMusic.debug.xcconfig */,
+				5727237C7BFAB2E56437EAA2 /* Pods-XNQQMusic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A61E98A8E7844E7F68B42E70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6F6D5B31B839B5E64812002 /* libPods-XNQQMusic.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 711E3DDE1E2DEF7000B03554 /* Build configuration list for PBXNativeTarget "XNQQMusic" */;
 			buildPhases = (
+				BE7FE9CE395E207A044F88D1 /* [CP] Check Pods Manifest.lock */,
 				711E3DC31E2DEF7000B03554 /* Sources */,
 				711E3DC41E2DEF7000B03554 /* Frameworks */,
 				711E3DC51E2DEF7000B03554 /* Resources */,
+				84E51618FE96E514D6C17026 /* [CP] Embed Pods Frameworks */,
+				B08F257BC66C547DB5C96CA6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +172,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84E51618FE96E514D6C17026 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XNQQMusic/Pods-XNQQMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B08F257BC66C547DB5C96CA6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XNQQMusic/Pods-XNQQMusic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE7FE9CE395E207A044F88D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		711E3DC31E2DEF7000B03554 /* Sources */ = {
@@ -269,6 +344,7 @@
 		};
 		711E3DDF1E2DEF7000B03554 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5F809E93DE686F0A69F34F2 /* Pods-XNQQMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y2TKYWJ5ZW;
@@ -281,6 +357,7 @@
 		};
 		711E3DE01E2DEF7000B03554 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5727237C7BFAB2E56437EAA2 /* Pods-XNQQMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y2TKYWJ5ZW;
@@ -310,6 +387,7 @@
 				711E3DE01E2DEF7000B03554 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,22 @@
+XNQQMusic/XNQQMusic.xcodeproj/project.xcworkspace/*
+#.xcworkspace
+*.mode*v*
+*.pbxuser
+*.xcbkptlist
+*.xcscheme
+#*.xcworkspacedata
+*.xcuserstate
+xcschememanagement.plist
+build/
+.DS_Store
+._.*
+xcuserdata/
+DerivedData/
+*.xccheckout
+# about eclipse
+Podfile.lock
+Pods/
+.metadata/
+xcuserdata/
+xcshareddata/
+#XNQQMusic/XNQQMusic.xcodeproj/project.pbxproj
