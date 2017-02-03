@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Playing Controller-->
         <scene sceneID="fio-v8-sfm">
             <objects>
-                <viewController id="cR2-qg-JWQ" sceneMemberID="viewController">
+                <viewController id="cR2-qg-JWQ" customClass="XNPlayingController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="za6-Yw-pp8"/>
                         <viewControllerLayoutGuide type="bottom" id="Ncw-49-OQ8"/>
@@ -24,7 +25,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lkq.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hqN-t8-ZlI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7K-5F-FC6">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7K-5F-FC6" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月半小夜曲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-2D-SSi" userLabel="歌曲名">
@@ -68,7 +69,7 @@
                                     <constraint firstItem="X9X-2D-SSi" firstAttribute="top" secondItem="z7K-5F-FC6" secondAttribute="top" constant="30" id="zkM-NS-EYL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWI-nR-9d0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWI-nR-9d0" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="517" width="375" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryu-Mp-WBz" userLabel="开始播放和停止">
@@ -114,6 +115,12 @@
                                             <constraint firstAttribute="height" constant="30" id="cHO-W5-MoC"/>
                                         </constraints>
                                         <color key="minimumTrackTintColor" red="0.14901960780000001" green="0.73333333329999995" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="end:" destination="cR2-qg-JWQ" eventType="touchUpInside" id="BU7-q6-M7d"/>
+                                            <action selector="progressValueChange" destination="cR2-qg-JWQ" eventType="valueChanged" id="VdA-gz-ib8"/>
+                                            <action selector="start" destination="cR2-qg-JWQ" eventType="touchDown" id="ird-P6-IK6"/>
+                                            <outletCollection property="gestureRecognizers" destination="j0R-yI-shU" appends="YES" id="WHJ-Xl-8pi"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -149,6 +156,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lkq.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KvA-rd-0U7">
+                                <rect key="frame" x="33" y="130" width="309" height="309"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KvA-rd-0U7" secondAttribute="height" multiplier="1:1" id="yXK-WI-3l5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -156,20 +169,37 @@
                             <constraint firstItem="Ncw-49-OQ8" firstAttribute="top" secondItem="hqN-t8-ZlI" secondAttribute="bottom" id="80w-nC-R89"/>
                             <constraint firstItem="lWI-nR-9d0" firstAttribute="leading" secondItem="adG-Jg-WOY" secondAttribute="leading" id="8Wi-sd-Bna"/>
                             <constraint firstItem="Ncw-49-OQ8" firstAttribute="top" secondItem="lWI-nR-9d0" secondAttribute="bottom" id="9rN-wl-vmw"/>
+                            <constraint firstItem="KvA-rd-0U7" firstAttribute="centerX" secondItem="adG-Jg-WOY" secondAttribute="centerX" id="E0k-kC-heq"/>
                             <constraint firstItem="hqN-t8-ZlI" firstAttribute="leading" secondItem="adG-Jg-WOY" secondAttribute="leading" id="J6n-u3-v71"/>
                             <constraint firstAttribute="trailing" secondItem="hqN-t8-ZlI" secondAttribute="trailing" id="JZC-7p-kDb"/>
                             <constraint firstItem="z7K-5F-FC6" firstAttribute="top" secondItem="adG-Jg-WOY" secondAttribute="top" id="Pkl-Xk-IXf"/>
+                            <constraint firstItem="4fj-Gw-nwK" firstAttribute="top" secondItem="KvA-rd-0U7" secondAttribute="bottom" constant="30" id="SgY-im-vg7"/>
                             <constraint firstItem="hqN-t8-ZlI" firstAttribute="top" secondItem="adG-Jg-WOY" secondAttribute="top" id="Ysu-qO-E7a"/>
                             <constraint firstItem="lWI-nR-9d0" firstAttribute="top" secondItem="4fj-Gw-nwK" secondAttribute="bottom" constant="30" id="aVj-7u-djb"/>
                             <constraint firstItem="z7K-5F-FC6" firstAttribute="leading" secondItem="adG-Jg-WOY" secondAttribute="leading" id="czC-nW-lri"/>
                             <constraint firstAttribute="trailing" secondItem="z7K-5F-FC6" secondAttribute="trailing" id="dYs-0q-4xJ"/>
+                            <constraint firstItem="KvA-rd-0U7" firstAttribute="top" secondItem="z7K-5F-FC6" secondAttribute="bottom" constant="30" id="opY-vk-0DG"/>
                             <constraint firstAttribute="trailing" secondItem="lWI-nR-9d0" secondAttribute="trailing" id="oqq-Gb-4oB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="albumView" destination="hqN-t8-ZlI" id="TPi-pW-5B7"/>
+                        <outlet property="currentTimeLabel" destination="UTa-Jd-08s" id="LcD-Wz-Exd"/>
+                        <outlet property="iconView" destination="KvA-rd-0U7" id="ohE-EA-oR1"/>
+                        <outlet property="progressSlider" destination="jHi-Bh-8Ot" id="sSn-BA-9Rb"/>
+                        <outlet property="singerLabel" destination="F8c-a7-MTU" id="jP3-fa-5qk"/>
+                        <outlet property="songLabel" destination="X9X-2D-SSi" id="9pA-wi-jjO"/>
+                        <outlet property="totalTimelabel" destination="vBo-Xp-sf4" id="TgS-2v-4f3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtR-Ld-UHH" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="j0R-yI-shU">
+                    <connections>
+                        <action selector="touchSider:" destination="cR2-qg-JWQ" id="bGR-SR-2MX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-140" y="-211"/>
+            <point key="canvasLocation" x="23" y="-594"/>
         </scene>
     </scenes>
     <resources>

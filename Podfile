@@ -5,5 +5,6 @@ target 'XNQQMusic' do
 
 pod 'AFNetworking', '~> 3.1.0'
 pod 'Masonry', '~> 1.0.2'
+pod 'MJExtension', '~> 3.0.13'
 
 end
