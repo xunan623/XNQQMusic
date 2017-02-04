@@ -80,18 +80,27 @@
                                         </constraints>
                                         <state key="normal" image="player_btn_play_normal"/>
                                         <state key="selected" image="player_btn_pause_normal"/>
+                                        <connections>
+                                            <action selector="playOrPause:" destination="cR2-qg-JWQ" eventType="touchUpInside" id="Wty-Nu-cS0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omb-6S-mNn" userLabel="下一首">
                                         <rect key="frame" x="250" y="56" width="64" height="64"/>
                                         <state key="normal" image="player_btn_next_normal"/>
                                         <state key="selected" image="player_btn_pause_normal"/>
                                         <state key="highlighted" image="player_btn_next_highlight"/>
+                                        <connections>
+                                            <action selector="nextClick:" destination="cR2-qg-JWQ" eventType="touchUpInside" id="B7t-r1-c4O"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppJ-G2-POt" userLabel="上一首">
                                         <rect key="frame" x="62" y="56" width="64" height="64"/>
                                         <state key="normal" image="player_btn_pre_normal"/>
                                         <state key="selected" image="player_btn_pause_normal"/>
                                         <state key="highlighted" image="player_btn_pre_highlight"/>
+                                        <connections>
+                                            <action selector="previousClick:" destination="cR2-qg-JWQ" eventType="touchUpInside" id="nak-Oa-f2G"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTa-Jd-08s" userLabel="当前播放的时间">
                                         <rect key="frame" x="0.0" y="15" width="42" height="21"/>
@@ -186,6 +195,7 @@
                         <outlet property="albumView" destination="hqN-t8-ZlI" id="TPi-pW-5B7"/>
                         <outlet property="currentTimeLabel" destination="UTa-Jd-08s" id="LcD-Wz-Exd"/>
                         <outlet property="iconView" destination="KvA-rd-0U7" id="ohE-EA-oR1"/>
+                        <outlet property="playOrPauseBtn" destination="ryu-Mp-WBz" id="leg-SL-5hr"/>
                         <outlet property="progressSlider" destination="jHi-Bh-8Ot" id="sSn-BA-9Rb"/>
                         <outlet property="singerLabel" destination="F8c-a7-MTU" id="jP3-fa-5qk"/>
                         <outlet property="songLabel" destination="X9X-2D-SSi" id="9pA-wi-jjO"/>
@@ -199,7 +209,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="23" y="-594"/>
+            <point key="canvasLocation" x="-404" y="-562"/>
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,7 @@
 #import "XMGAudioTool.h"
 #import <Masonry.h>
 #import "NSString+XNTimerExtextion.h"
+#import "CALayer+PauseAimate.h"
 
 #define XNColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) NSTimer *progressTimer;
 
 @property (strong, nonatomic) AVAudioPlayer *currentPlayer;
+@property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
 
 @end
 
@@ -67,10 +69,24 @@
     self.currentPlayer = currentPlayer;
     self.currentTimeLabel.text = [NSString stringWithTime:currentPlayer.currentTime];
     self.totalTimelabel.text = [NSString stringWithTime:currentPlayer.duration];
+    // 3.1设置播放按钮
+    self.playOrPauseBtn.selected = self.currentPlayer.isPlaying;
     
     // 4.开启定时器
     [self removeProgressTimer];
     [self addProgressTimer];
+    
+    // 5.添加iconView动画
+    [self addIconViewAnimate];
+}
+
+- (void)addIconViewAnimate {
+    CABasicAnimation *rotateAnimate = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotateAnimate.fromValue = @0;
+    rotateAnimate.toValue = @(M_PI * 2);
+    rotateAnimate.repeatCount =  NSIntegerMax;
+    rotateAnimate.duration = 20;
+    [self.iconView.layer addAnimation:rotateAnimate forKey:nil];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -149,6 +165,38 @@
     // 4.更新时间和滑块
     [self updateProgressInfo];
 }
+- (IBAction)playOrPause:(UIButton *)sender {
+    self.playOrPauseBtn.selected = !self.playOrPauseBtn.selected;
+    
+    if (self.currentPlayer.isPlaying) {
+        // 1.暂停播放
+        [self.currentPlayer pause];
+        // 2.移除定时器
+        [self removeProgressTimer];
+        // 3.暂停旋转动画
+        [self.iconView.layer pauseAnimate];
+    } else {
+        // 3.开始播放
+        [self.currentPlayer play];
+        // 4.开启定时器
+        [self addProgressTimer];
+        // 5.开始旋转动画
+        [self.iconView.layer resumeAnimate];
+    }
+}
 
+- (IBAction)previousClick:(UIButton *)sender {
+}
+- (IBAction)nextClick:(UIButton *)sender {
+    // 1.获取当前播放的音乐并停止
+    XNMusic *currentMusic = [XNMusicTool playingMusic];
+    [XMGAudioTool stopMusicWithFileName:currentMusic.filename];
+    
+    // 2.获取下一首歌
+    XNMusic *nextMusic = [XNMusicTool nextMusic];
+    
+    // 3.设置下一首歌为默认播放歌曲
+    
+}
 
 @end

@@ -32,4 +32,22 @@ static XNMusic *_playingMusic;
     _playingMusic = playingMusic;
 }
 
+
++ (XNMusic *)previousMusic {
+    NSInteger currentIndex = [_musics indexOfObject:_playingMusic];
+    if (currentIndex == 0) {
+        return [_musics lastObject];
+    }
+    return _musics[currentIndex -1];
+}
+
++ (XNMusic *)nextMusic {
+    NSInteger currentIndex = [_musics indexOfObject:_playingMusic];
+
+    if (currentIndex == _musics.count) {
+        return _musics[0];
+    }
+    return _musics[currentIndex + 1];
+}
+
 @end

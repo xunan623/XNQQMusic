@@ -28,4 +28,15 @@
  */
 + (void)setupPlayingMusic:(XNMusic *)playingMusic;
 
+
+/**
+ 上一首音乐
+ */
++ (XNMusic *)previousMusic;
+
+/**
+ 下一首音乐
+ */
++ (XNMusic *)nextMusic;
+
 @end
