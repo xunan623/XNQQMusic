@@ -17,7 +17,7 @@ static XNMusic *_playingMusic;
 
 + (void)initialize {
     if (!_musics) _musics = [XNMusic mj_objectArrayWithFilename:@"Musics.plist"];
-    if (!_playingMusic) _playingMusic = _musics[1];
+    if (!_playingMusic) _playingMusic = _musics[0];
 }
 
 + (NSArray *)musics {
@@ -44,10 +44,11 @@ static XNMusic *_playingMusic;
 + (XNMusic *)nextMusic {
     NSInteger currentIndex = [_musics indexOfObject:_playingMusic];
 
-    if (currentIndex == _musics.count) {
+    if (currentIndex >= _musics.count - 1) {
         return _musics[0];
     }
     return _musics[currentIndex + 1];
 }
+
 
 @end

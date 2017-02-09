@@ -171,14 +171,22 @@
                                     <constraint firstAttribute="width" secondItem="KvA-rd-0U7" secondAttribute="height" multiplier="1:1" id="yXK-WI-3l5"/>
                                 </constraints>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjX-Wq-Dij" customClass="XNLrcView">
+                                <rect key="frame" x="0.0" y="100" width="375" height="417"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cR2-qg-JWQ" id="4n7-Qo-TGM"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4fj-Gw-nwK" firstAttribute="centerX" secondItem="hqN-t8-ZlI" secondAttribute="centerX" id="48D-9s-F7i"/>
                             <constraint firstItem="Ncw-49-OQ8" firstAttribute="top" secondItem="hqN-t8-ZlI" secondAttribute="bottom" id="80w-nC-R89"/>
                             <constraint firstItem="lWI-nR-9d0" firstAttribute="leading" secondItem="adG-Jg-WOY" secondAttribute="leading" id="8Wi-sd-Bna"/>
+                            <constraint firstItem="lWI-nR-9d0" firstAttribute="top" secondItem="MjX-Wq-Dij" secondAttribute="bottom" id="8e7-I9-kaY"/>
                             <constraint firstItem="Ncw-49-OQ8" firstAttribute="top" secondItem="lWI-nR-9d0" secondAttribute="bottom" id="9rN-wl-vmw"/>
                             <constraint firstItem="KvA-rd-0U7" firstAttribute="centerX" secondItem="adG-Jg-WOY" secondAttribute="centerX" id="E0k-kC-heq"/>
+                            <constraint firstAttribute="trailing" secondItem="MjX-Wq-Dij" secondAttribute="trailing" id="GW8-2l-3ac"/>
                             <constraint firstItem="hqN-t8-ZlI" firstAttribute="leading" secondItem="adG-Jg-WOY" secondAttribute="leading" id="J6n-u3-v71"/>
                             <constraint firstAttribute="trailing" secondItem="hqN-t8-ZlI" secondAttribute="trailing" id="JZC-7p-kDb"/>
                             <constraint firstItem="z7K-5F-FC6" firstAttribute="top" secondItem="adG-Jg-WOY" secondAttribute="top" id="Pkl-Xk-IXf"/>
@@ -187,14 +195,18 @@
                             <constraint firstItem="lWI-nR-9d0" firstAttribute="top" secondItem="4fj-Gw-nwK" secondAttribute="bottom" constant="30" id="aVj-7u-djb"/>
                             <constraint firstItem="z7K-5F-FC6" firstAttribute="leading" secondItem="adG-Jg-WOY" secondAttribute="leading" id="czC-nW-lri"/>
                             <constraint firstAttribute="trailing" secondItem="z7K-5F-FC6" secondAttribute="trailing" id="dYs-0q-4xJ"/>
+                            <constraint firstItem="MjX-Wq-Dij" firstAttribute="top" secondItem="z7K-5F-FC6" secondAttribute="bottom" id="ilV-RR-cpP"/>
                             <constraint firstItem="KvA-rd-0U7" firstAttribute="top" secondItem="z7K-5F-FC6" secondAttribute="bottom" constant="30" id="opY-vk-0DG"/>
                             <constraint firstAttribute="trailing" secondItem="lWI-nR-9d0" secondAttribute="trailing" id="oqq-Gb-4oB"/>
+                            <constraint firstItem="MjX-Wq-Dij" firstAttribute="leading" secondItem="adG-Jg-WOY" secondAttribute="leading" id="wHT-89-F4e"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="albumView" destination="hqN-t8-ZlI" id="TPi-pW-5B7"/>
                         <outlet property="currentTimeLabel" destination="UTa-Jd-08s" id="LcD-Wz-Exd"/>
                         <outlet property="iconView" destination="KvA-rd-0U7" id="ohE-EA-oR1"/>
+                        <outlet property="lrcLabel" destination="4fj-Gw-nwK" id="3DP-4g-ChN"/>
+                        <outlet property="lrcView" destination="MjX-Wq-Dij" id="iR7-cb-A4e"/>
                         <outlet property="playOrPauseBtn" destination="ryu-Mp-WBz" id="leg-SL-5hr"/>
                         <outlet property="progressSlider" destination="jHi-Bh-8Ot" id="sSn-BA-9Rb"/>
                         <outlet property="singerLabel" destination="F8c-a7-MTU" id="jP3-fa-5qk"/>
@@ -209,7 +221,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-404" y="-562"/>
+            <point key="canvasLocation" x="-577" y="-581"/>
         </scene>
     </scenes>
     <resources>

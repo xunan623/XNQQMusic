@@ -53,6 +53,10 @@
 		711E3E371E2DFC7A00B03554 /* 339744.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711E3E0E1E2DFC7A00B03554 /* 339744.mp3 */; };
 		711E3E381E2DFC7A00B03554 /* Musics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 711E3E0F1E2DFC7A00B03554 /* Musics.plist */; };
 		711EDADC1E457B06003BF541 /* CALayer+PauseAimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 711EDADB1E457B06003BF541 /* CALayer+PauseAimate.m */; };
+		712D43D31E45AF1B00DD2B92 /* XNLrcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D43D21E45AF1B00DD2B92 /* XNLrcView.m */; };
+		712D43D61E45C76200DD2B92 /* XNLrcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D43D51E45C76200DD2B92 /* XNLrcCell.m */; };
+		712D43DF1E45D6AB00DD2B92 /* XNLrcTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D43DE1E45D6AB00DD2B92 /* XNLrcTool.m */; };
+		712F40DC1E481A680057FF95 /* XNLrcLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 712F40DB1E481A680057FF95 /* XNLrcLine.m */; };
 		71593DFE1E441CF70050A907 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71593DFA1E441CF70050A907 /* AppDelegate.m */; };
 		71593DFF1E441CF70050A907 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71593DFB1E441CF70050A907 /* main.m */; };
 		71593E021E441D6F0050A907 /* XNPlayingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71593E011E441D6F0050A907 /* XNPlayingController.m */; };
@@ -60,6 +64,7 @@
 		71593E0A1E4458070050A907 /* XNMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 71593E091E4458070050A907 /* XNMusicTool.m */; };
 		71593E0D1E4463BC0050A907 /* XMGAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 71593E0C1E4463BC0050A907 /* XMGAudioTool.m */; };
 		71593E111E4475280050A907 /* NSString+XNTimerExtextion.m in Sources */ = {isa = PBXBuildFile; fileRef = 71593E101E4475280050A907 /* NSString+XNTimerExtextion.m */; };
+		7173843D1E4C0EDC0044EFA5 /* XNLrcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7173843C1E4C0EDC0044EFA5 /* XNLrcLabel.m */; };
 		7178BFD31E30BE1C00F2AF56 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 7178BFD21E30BE1C00F2AF56 /* a.png */; };
 		ACB13D24CD8A951C1ECCC9DC /* libPods-XNQQMusic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F6D5B31B839B5E64812002 /* libPods-XNQQMusic.a */; };
 /* End PBXBuildFile section */
@@ -116,6 +121,14 @@
 		711E3E0F1E2DFC7A00B03554 /* Musics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Musics.plist; sourceTree = "<group>"; };
 		711EDADA1E457B06003BF541 /* CALayer+PauseAimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+PauseAimate.h"; sourceTree = "<group>"; };
 		711EDADB1E457B06003BF541 /* CALayer+PauseAimate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+PauseAimate.m"; sourceTree = "<group>"; };
+		712D43D11E45AF1B00DD2B92 /* XNLrcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLrcView.h; sourceTree = "<group>"; };
+		712D43D21E45AF1B00DD2B92 /* XNLrcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLrcView.m; sourceTree = "<group>"; };
+		712D43D41E45C76200DD2B92 /* XNLrcCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLrcCell.h; sourceTree = "<group>"; };
+		712D43D51E45C76200DD2B92 /* XNLrcCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLrcCell.m; sourceTree = "<group>"; };
+		712D43DD1E45D6AB00DD2B92 /* XNLrcTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLrcTool.h; sourceTree = "<group>"; };
+		712D43DE1E45D6AB00DD2B92 /* XNLrcTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLrcTool.m; sourceTree = "<group>"; };
+		712F40DA1E481A680057FF95 /* XNLrcLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLrcLine.h; sourceTree = "<group>"; };
+		712F40DB1E481A680057FF95 /* XNLrcLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLrcLine.m; sourceTree = "<group>"; };
 		71593DF91E441CF70050A907 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		71593DFA1E441CF70050A907 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		71593DFB1E441CF70050A907 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -129,6 +142,8 @@
 		71593E0C1E4463BC0050A907 /* XMGAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGAudioTool.m; sourceTree = "<group>"; };
 		71593E0F1E4475280050A907 /* NSString+XNTimerExtextion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XNTimerExtextion.h"; sourceTree = "<group>"; };
 		71593E101E4475280050A907 /* NSString+XNTimerExtextion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XNTimerExtextion.m"; sourceTree = "<group>"; };
+		7173843B1E4C0EDC0044EFA5 /* XNLrcLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLrcLabel.h; sourceTree = "<group>"; };
+		7173843C1E4C0EDC0044EFA5 /* XNLrcLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLrcLabel.m; sourceTree = "<group>"; };
 		7178BFD01E30A97000F2AF56 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7178BFD21E30BE1C00F2AF56 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
 		C6F6D5B31B839B5E64812002 /* libPods-XNQQMusic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XNQQMusic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +303,8 @@
 			children = (
 				71593E051E4435A10050A907 /* XNMusic.h */,
 				71593E061E4435A10050A907 /* XNMusic.m */,
+				712F40DA1E481A680057FF95 /* XNLrcLine.h */,
+				712F40DB1E481A680057FF95 /* XNLrcLine.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +327,8 @@
 				71593E0C1E4463BC0050A907 /* XMGAudioTool.m */,
 				71593E081E4458070050A907 /* XNMusicTool.h */,
 				71593E091E4458070050A907 /* XNMusicTool.m */,
+				712D43DD1E45D6AB00DD2B92 /* XNLrcTool.h */,
+				712D43DE1E45D6AB00DD2B92 /* XNLrcTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -317,6 +336,12 @@
 		71593DFD1E441CF70050A907 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				712D43D11E45AF1B00DD2B92 /* XNLrcView.h */,
+				712D43D21E45AF1B00DD2B92 /* XNLrcView.m */,
+				712D43D41E45C76200DD2B92 /* XNLrcCell.h */,
+				712D43D51E45C76200DD2B92 /* XNLrcCell.m */,
+				7173843B1E4C0EDC0044EFA5 /* XNLrcLabel.h */,
+				7173843C1E4C0EDC0044EFA5 /* XNLrcLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,10 +548,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7173843D1E4C0EDC0044EFA5 /* XNLrcLabel.m in Sources */,
+				712F40DC1E481A680057FF95 /* XNLrcLine.m in Sources */,
 				71593E111E4475280050A907 /* NSString+XNTimerExtextion.m in Sources */,
 				71593E0D1E4463BC0050A907 /* XMGAudioTool.m in Sources */,
+				712D43D31E45AF1B00DD2B92 /* XNLrcView.m in Sources */,
+				712D43DF1E45D6AB00DD2B92 /* XNLrcTool.m in Sources */,
 				71593E071E4435A10050A907 /* XNMusic.m in Sources */,
 				71593E0A1E4458070050A907 /* XNMusicTool.m in Sources */,
+				712D43D61E45C76200DD2B92 /* XNLrcCell.m in Sources */,
 				71593DFE1E441CF70050A907 /* AppDelegate.m in Sources */,
 				71593DFF1E441CF70050A907 /* main.m in Sources */,
 				71593E021E441D6F0050A907 /* XNPlayingController.m in Sources */,

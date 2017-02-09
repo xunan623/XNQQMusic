@@ -13,10 +13,11 @@
 #import <Masonry.h>
 #import "NSString+XNTimerExtextion.h"
 #import "CALayer+PauseAimate.h"
+#import "XNLrcView.h"
 
 #define XNColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
-@interface XNPlayingController ()
+@interface XNPlayingController () <UIScrollViewDelegate>
 /** 歌手背景图片 */
 @property (weak, nonatomic) IBOutlet UIImageView *albumView;
 
@@ -31,9 +32,15 @@
 
 /** 进度条定时器 */
 @property (strong, nonatomic) NSTimer *progressTimer;
+/** 歌词定时器 */
+@property (strong, nonatomic) CADisplayLink *lrcTimer;
 
 @property (strong, nonatomic) AVAudioPlayer *currentPlayer;
 @property (weak, nonatomic) IBOutlet UIButton *playOrPauseBtn;
+
+/** 歌词scrollView */
+@property (weak, nonatomic) IBOutlet XNLrcView *lrcView;
+@property (weak, nonatomic) IBOutlet UILabel *lrcLabel;
 
 @end
 
@@ -50,6 +57,9 @@
     
     // 3.播放音乐
     [self startPlayingMusic];
+    
+    // 4.设置歌词view的contenSize
+    self.lrcView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, 0);
 
 }
 
@@ -71,10 +81,15 @@
     self.totalTimelabel.text = [NSString stringWithTime:currentPlayer.duration];
     // 3.1设置播放按钮
     self.playOrPauseBtn.selected = self.currentPlayer.isPlaying;
+    // 3.2设置歌词
+    self.lrcView.lrcName = playingMusic.lrcname;
     
     // 4.开启定时器
     [self removeProgressTimer];
     [self addProgressTimer];
+    
+    [self removeLrcTimer];
+    [self addLrcTimer];
     
     // 5.添加iconView动画
     [self addIconViewAnimate];
@@ -132,6 +147,33 @@
     self.progressSlider.value = self.currentPlayer.currentTime / self.currentPlayer.duration;
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // 1.获取滑动的偏移量
+    CGPoint point = scrollView.contentOffset;
+    
+    // 2.获取滑动的比例
+    CGFloat alpha = 1 - point.x / scrollView.bounds.size.width;
+    self.iconView.alpha = alpha;
+    self.lrcLabel.alpha = alpha;
+}
+
+#pragma mark - 歌词定时器的处理
+- (void)addLrcTimer {
+    self.lrcTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateLrcInfo)];
+    [self.lrcTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    
+}
+
+- (void)removeLrcTimer {
+    [self.lrcTimer invalidate];
+    self.lrcTimer = nil;
+}
+
+- (void)updateLrcInfo {
+    self.lrcView.currentTime = self.currentPlayer.currentTime;
+}
+
 #pragma mark - 进度条事件处理
 - (IBAction)start {
     // 移除定时器
@@ -186,17 +228,22 @@
 }
 
 - (IBAction)previousClick:(UIButton *)sender {
+    [self playMusicWithMusic:[XNMusicTool previousMusic]];
 }
 - (IBAction)nextClick:(UIButton *)sender {
+    [self playMusicWithMusic:[XNMusicTool nextMusic]];
+}
+
+- (void)playMusicWithMusic:(XNMusic *)music {
     // 1.获取当前播放的音乐并停止
     XNMusic *currentMusic = [XNMusicTool playingMusic];
     [XMGAudioTool stopMusicWithFileName:currentMusic.filename];
     
-    // 2.获取下一首歌
-    XNMusic *nextMusic = [XNMusicTool nextMusic];
+    // 2.设置下一首歌为默认播放歌曲
+    [XNMusicTool setupPlayingMusic:music];
     
-    // 3.设置下一首歌为默认播放歌曲
-    
+    // 3.播放音乐
+    [self startPlayingMusic];
 }
 
 @end
