@@ -10,4 +10,7 @@
 
 @interface XNLrcLabel : UILabel
 
+/** 当前播放进度 */
+@property (nonatomic, assign) CGFloat progress;
+
 @end

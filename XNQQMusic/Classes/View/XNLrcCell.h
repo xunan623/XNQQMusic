@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class XNLrcLabel;
 @interface XNLrcCell : UITableViewCell
 
 + (instancetype)lrcCellWithTableView:(UITableView *)tableView;
+
+/** LrcLabel */
+@property (strong, nonatomic) XNLrcLabel *lrcLabel;
 
 @end

@@ -10,6 +10,7 @@
 #import "XNLrcCell.h"
 #import "XNLrcTool.h"
 #import <Masonry.h>
+#import "XNLrcLabel.h"
 #import "XNLrcLine.h"
 
 @interface XNLrcView() <UITableViewDelegate, UITableViewDataSource>
@@ -81,14 +82,15 @@
     XNLrcCell *cell = [XNLrcCell lrcCellWithTableView:tableView];
     XNLrcLine *lineModel = self.lrcList[indexPath.row];
 
-    cell.textLabel.textColor = [UIColor lightGrayColor];
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    cell.lrcLabel.textColor = [UIColor lightGrayColor];
+    cell.lrcLabel.font = [UIFont systemFontOfSize:14.0f];
+    cell.lrcLabel.progress = 0.0;
     if (self.currentIndex == indexPath.row) {
-        cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
-        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.lrcLabel.font = [UIFont systemFontOfSize:17.0f];
+        cell.lrcLabel.textColor = [UIColor whiteColor];
     }
     
-    cell.textLabel.text = lineModel.text;
+    cell.lrcLabel.text = lineModel.text;
     return cell;
 }
 
@@ -97,8 +99,18 @@
 - (void)setLrcName:(NSString *)lrcName {
     _lrcName = lrcName;
     
+    // 第一句歌词滚动到中间
+    [self.tableView setContentOffset:CGPointMake(0, -self.tableView.bounds.size.height/ 2) animated:YES];
+    
+    // 让上一首index为0
+    self.currentIndex = 0;
+
     // 1.拆成数组
     self.lrcList = [XNLrcTool setupLrcWithString:lrcName];
+    
+    // 1.1设置第一句歌词
+    XNLrcLine *firstLrcLine = self.lrcList[0];
+    self.lrcLabel.text = firstLrcLine.text;
     
     // 2.刷新数据
     [self.tableView reloadData];
@@ -106,6 +118,8 @@
 
 
 - (void)setCurrentTime:(NSTimeInterval)currentTime {
+    
+    
     _currentTime = currentTime;
     
     
@@ -133,7 +147,25 @@
             
             [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
             
+            // 设置主界面歌词label
+            self.lrcLabel.text = currentLine.text;
         }
+        
+        if (self.currentIndex == i) { // 当前歌词
+            
+            // 百分百
+            CGFloat value = (currentTime - currentLine.time) / (nextLine.time - currentLine.time);
+            
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            XNLrcCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            
+            cell.lrcLabel.progress = value;
+            
+            // 设置主界面歌词进度
+            self.lrcLabel.progress = value;
+            
+        }
+        
     }
 }
 

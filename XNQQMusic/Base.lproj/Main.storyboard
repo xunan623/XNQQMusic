@@ -156,8 +156,8 @@
                                     <constraint firstItem="vBo-Xp-sf4" firstAttribute="bottom" secondItem="UTa-Jd-08s" secondAttribute="bottom" id="z2h-US-a4r"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌词Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fj-Gw-nwK">
-                                <rect key="frame" x="149" y="469" width="77" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fj-Gw-nwK" customClass="XNLrcLabel">
+                                <rect key="frame" x="187.5" y="469" width="0.0" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="G7Q-8T-uF6"/>
                                 </constraints>

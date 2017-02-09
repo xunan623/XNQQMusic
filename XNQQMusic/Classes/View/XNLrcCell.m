@@ -7,6 +7,8 @@
 //
 
 #import "XNLrcCell.h"
+#import "XNLrcLabel.h"
+#import <Masonry.h>
 
 @implementation XNLrcCell
 
@@ -22,11 +24,19 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        XNLrcLabel *lrcLabel = [[XNLrcLabel alloc] init];
+        [self.contentView addSubview:lrcLabel];
+        self.lrcLabel = lrcLabel;
+        [lrcLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+        }];
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor clearColor];
-        self.textLabel.textColor = [UIColor whiteColor];
-        self.textLabel.textAlignment = NSTextAlignmentCenter;
-        self.textLabel.font = [UIFont systemFontOfSize:14.0];
+        lrcLabel.textColor = [UIColor whiteColor];
+        lrcLabel.textAlignment = NSTextAlignmentCenter;
+        lrcLabel.font = [UIFont systemFontOfSize:14.0];
     }
     return self;
 }

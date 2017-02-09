@@ -14,6 +14,7 @@
 #import "NSString+XNTimerExtextion.h"
 #import "CALayer+PauseAimate.h"
 #import "XNLrcView.h"
+#import "XNLrcLabel.h"
 
 #define XNColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
@@ -40,11 +41,16 @@
 
 /** 歌词scrollView */
 @property (weak, nonatomic) IBOutlet XNLrcView *lrcView;
-@property (weak, nonatomic) IBOutlet UILabel *lrcLabel;
+@property (weak, nonatomic) IBOutlet XNLrcLabel *lrcLabel;
 
 @end
 
 @implementation XNPlayingController
+
+#pragma mark - 移除通知
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,15 +61,24 @@
     // 2.改变滑块的图片
     [self.progressSlider setThumbImage:[UIImage imageNamed:@"player_slider_playback_thumb"] forState:UIControlStateNormal];
     
-    // 3.播放音乐
+    // 3.传主界面歌词
+    self.lrcView.lrcLabel = self.lrcLabel;
+    
+    // 4.播放音乐
     [self startPlayingMusic];
     
-    // 4.设置歌词view的contenSize
+    // 5.设置歌词view的contenSize
     self.lrcView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, 0);
+    
+    // 6.进入前台接收通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIconViewAnimate) name:@"XNIconViewNotification" object:nil];
 
 }
 
 - (void)startPlayingMusic {
+    
+    // 0.开始时清除歌词
+    self.lrcLabel.text = nil; 
     
     // 1.获取当前正在播放的音乐
     XNMusic *playingMusic = [XNMusicTool playingMusic];
@@ -93,7 +108,10 @@
     
     // 5.添加iconView动画
     [self addIconViewAnimate];
+    
+
 }
+
 
 - (void)addIconViewAnimate {
     CABasicAnimation *rotateAnimate = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
