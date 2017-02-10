@@ -15,6 +15,7 @@
 #import "CALayer+PauseAimate.h"
 #import "XNLrcView.h"
 #import "XNLrcLabel.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define XNColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
@@ -70,8 +71,12 @@
     // 5.设置歌词view的contenSize
     self.lrcView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, 0);
     
+    
     // 6.进入前台接收通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIconViewAnimate) name:@"XNIconViewNotification" object:nil];
+    
+    // 7.传入时间
+    self.lrcView.duration = self.currentPlayer.duration;
 
 }
 
@@ -120,6 +125,10 @@
     rotateAnimate.repeatCount =  NSIntegerMax;
     rotateAnimate.duration = 20;
     [self.iconView.layer addAnimation:rotateAnimate forKey:nil];
+    
+    // 更新动画是否进入后台
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"iconViewAnimate"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -262,6 +271,49 @@
     
     // 3.播放音乐
     [self startPlayingMusic];
+}
+
+
+#pragma mark - 状态栏颜色
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+
+/**
+ 设置锁屏界面播放暂停按钮
+ */
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    /**
+     UIEventSubtypeRemoteControlPlay                 = 100,
+     UIEventSubtypeRemoteControlPause                = 101,
+     UIEventSubtypeRemoteControlStop                 = 102,
+     UIEventSubtypeRemoteControlTogglePlayPause      = 103,
+     UIEventSubtypeRemoteControlNextTrack            = 104,
+     UIEventSubtypeRemoteControlPreviousTrack        = 105,
+     UIEventSubtypeRemoteControlBeginSeekingBackward = 106,
+     UIEventSubtypeRemoteControlEndSeekingBackward   = 107,
+     UIEventSubtypeRemoteControlBeginSeekingForward  = 108,
+     UIEventSubtypeRemoteControlEndSeekingForward    = 109,
+     */
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+        case UIEventSubtypeRemoteControlPause: {
+            [self playOrPause:nil];
+        }
+            break;
+        case UIEventSubtypeRemoteControlNextTrack: {
+            [self nextClick:nil];
+        }
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack: {
+            [self previousClick:nil]; 
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

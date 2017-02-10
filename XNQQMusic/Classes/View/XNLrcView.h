@@ -18,4 +18,7 @@
 /** 主界面歌词label */
 @property (strong, nonatomic) XNLrcLabel *lrcLabel;
 
+/** 当前播放器的总时间 */
+@property (nonatomic, assign) NSTimeInterval duration;
+
 @end

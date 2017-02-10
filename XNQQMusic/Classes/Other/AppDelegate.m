@@ -23,7 +23,7 @@
     // 2.设置为后台类型
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     // 3.激活会话
-    
+    [session setActive:YES error:nil];
     
     return YES;
 }
@@ -54,6 +54,7 @@
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
